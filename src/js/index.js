@@ -3,6 +3,8 @@ import Notiflix from 'notiflix';
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
+let lightbox = '';
+
 const refs = {
   form: document.getElementById('search-form'),
   gallery: document.querySelector('.gallery'),
