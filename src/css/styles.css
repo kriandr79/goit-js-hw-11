@@ -12,8 +12,13 @@ h1 {
   margin-bottom: 8px;
 }
 button {
-    background-color: rgb(37, 90, 235);
-    color: #fff;
+  background-color: rgb(49, 86, 189);
+
+  color: #fff;
+  cursor: pointer;
+}
+button:hover {
+  background-color: rgb(12, 48, 146);
 }
 .is-hidden {
   opacity: 0;
@@ -37,10 +42,13 @@ button {
   width: 300px;
   padding: 5px;
   font-size: 14px;
+  outline: none;
 }
 .search-form > button {
-  padding: 5px;
+  padding: 8px;
   font-size: 14px;
+  border-style: none;
+  border-radius: 10px;
 }
 .gallery {
   display: flex;
@@ -57,17 +65,17 @@ button {
   height: 350px;
   /* border: 1px solid;
   border-color: rgb(219, 219, 219);*/
-  background-color: rgb(253, 246, 238); 
+  background-color: rgb(253, 246, 238);
 
   box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08),
     0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
   border-radius: 0px 0px 4px 4px;
 }
 .photo-card-link {
-    display: block;
-    width: 400px;
-    height: 300px;
-    overflow: hidden;
+  display: block;
+  width: 400px;
+  height: 300px;
+  overflow: hidden;
 }
 .info {
   display: flex;
@@ -85,13 +93,20 @@ button {
   align-items: center;
 }
 .load-more-wrapper {
-    width: 500px;
-    padding: 20px;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
+  width: 500px;
+  padding: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
 }
 .load-more {
-padding: 5px;
+  padding: 8px;
   font-size: 14px;
+  border-style: none;
+  border-radius: 10px;
+  background-color: rgb(49, 86, 189);
+  color: #fff;
+  cursor: pointer;
 }
+
+

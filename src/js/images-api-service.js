@@ -1,4 +1,5 @@
 import axios from 'axios';
+import Notiflix from 'notiflix';
 
 const API_KEY = '38931219-81f95ff04be64d9b8b5d6502d';
 const BASE_URL = 'https://pixabay.com/api/';
@@ -22,12 +23,18 @@ export default class ImagesApiService {
     try {
       const data = await axios.get(`${BASE_URL}`, { params: this.params });
 
-      this.totalPages = Math.ceil(data.data.total / this.params.per_page); // рахуємо, скільки буде всього сторінок для вибраної кількості картинок
+      this.totalPages = Math.ceil(data.data.totalHits / this.params.per_page); // рахуємо, скільки буде всього сторінок для вибраної кількості картинок
       this.nextPage();
       return data.data;
 
     } catch (err) {
-      console.log(err);
+      Notiflix.Notify.failure(
+        'Something went wrong. Please try again.',
+        {
+          timeout: 2000,
+        }
+      );
+      // console.log(err);
     }
   }
 

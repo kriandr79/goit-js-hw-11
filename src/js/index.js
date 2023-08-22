@@ -44,7 +44,11 @@ function onSubmit(e) {
   imagesService
     .fetchImages()
     .then(({ hits, total }) => {
+
+      clearCardsContainer();
+
       if (hits.length === 0) {
+        
         Notiflix.Notify.failure(
           'Sorry, there are no images matching your search query. Please try again.',
           {
@@ -52,7 +56,6 @@ function onSubmit(e) {
           }
         );
       } else {
-        clearCardsContainer();
         appendCardsMarkup(hits);
 
         Notiflix.Notify.success(`Hooray! We found ${total} images.`, {
@@ -65,13 +68,14 @@ function onSubmit(e) {
         showElement(refs.loadMoreBtn); // показуємо кнопку
       }
     })
-    .catch(console.log);
+    .catch(err => { console.log(err) });
 }
 
 function onLoadMore() {
   // Беремо значення поточної сторінки й значення кількости сторінок всього
   const currentPage = imagesService.currentPage;
   const totalPages = imagesService.totalPages;
+  console.log(totalPages);
 
   imagesService
     .fetchImages()
@@ -84,7 +88,7 @@ function onLoadMore() {
         hideElement(refs.loadMoreBtn);
 
         return Notiflix.Notify.failure(
-          `We're sorry, but you've reached the end of search results - ${total} objects.`,
+          `We're sorry, but you've reached the end of search results.`,
           {
             timeout: MESSAGE_TIMEOUT,
           }
